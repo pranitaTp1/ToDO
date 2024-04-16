@@ -28,7 +28,11 @@ const HomeScreen = () => {
 
     const handleUpdateItem = () => {
         const updateTodo = todoData.map((item) => {
-            return { ...item, title: task };
+            if(editedItem?.id === item.id) {
+                return { ...item, title: task };
+            }
+            return item;
+            
         });
         setTodoData(updateTodo);
         setEditedItem(null);
